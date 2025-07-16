@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vishwakarma Fabricator</title>
+
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919915067013" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1745a8;
+  color: white;
+  font-size: 24px;
+  padding: 14px 16px;
+  border-radius: 50%;
+  text-align: center;
+  z-index: 999;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #1ebd5d;
+}
+
+</style>
+
+
+
+
+  <style>
+    /* ✅ Global Fix */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+    }
+
+    body {
+      padding-top: 70px;
+    }
+
+    /* ✅ Navbar Styling */
+    .navbar {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar .navbar-brand {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      line-height: 1.2;
+      word-break: break-word;
+      max-width: 80%;
+    }
+
+    .navbar .navbar-brand span:first-child {
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .navbar .navbar-brand span:last-child {
+      color: #ff3c00;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      margin-left: 4px;
+    }
+
+    .navbar .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .nav-link:hover {
+      color: #ff3c00 !important;
+    }
+
+    /* ✅ Offcanvas Styling */
+    .offcanvas {
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .offcanvas .nav-link {
+      color: #fff !important;
+      font-size: 1.3rem;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .offcanvas .nav-link:hover {
+      color: #ff3c00 !important;
+    }
+
+    .offcanvas-header {
+      justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .offcanvas-title {
+      color: #ff3c00;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ✅ Responsive Tweaks */
+    @media (max-width: 991.98px) {
+      .desktop-nav {
+        display: none;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .mobile-toggle {
+        display: none;
+      }
+    }
+
+    /* ✅ Mobile Brand Stack */
+    @media (max-width: 768px) {
+      .navbar .navbar-brand {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar .navbar-brand span:first-child {
+        font-size: 1.2rem;
+      }
+
+      .navbar .navbar-brand span:last-child {
+        font-size: 1rem;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Navbar Start -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+    <a class="navbar-brand" href="#">
+      <span>Vishwakarma</span>
+      <span>FABRICATOR</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="desktop-nav">
+      <ul class="navbar-nav flex-row ms-auto">
+        <li class="nav-item px-2"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#machinery-slider">Machinery</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#clients">Clients</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#footer">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler mobile-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ✅ Mobile Offcanvas -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close btn-close-white position-absolute end-0 me-3 mt-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+      <li class="nav-item"><a class="nav-link" href="#machinery-slider">Machinery</a></li>
+      <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+      <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+      <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ✅ Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ✅ Auto-close Offcanvas on link click -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const offcanvas = document.getElementById('mobileMenu');
+    const bsOffcanvas = new bootstrap.Offcanvas(offcanvas);
+
+    document.querySelectorAll('#mobileMenu .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        bsOffcanvas.hide();
+      });
+    });
+  });
+</script>
+<style>
+
+    /* Hero Section */
+
+
+    .hero {
+  height: 100vh;
+  margin-top: -70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('banner.jpg') no-repeat top center/cover;
+  overflow: hidden;
+}
+
+
+ 
+
+    .hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('./banner.jpg') no-repeat center center/cover;
+  z-index: -1;
+  animation: zoomBg 10s ease-in-out infinite;
+}
+
+
+    @keyframes zoomBg {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .typewriter h1 {
+      font-size: 3rem;
+      overflow: hidden;
+      border-right: .15em solid #ff3c00;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .1em;
+      animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #ff3c00; }
+    }
+
+    .subtext {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      animation: fadeIn 2s ease-in-out 3s forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #22125e;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 4s forwards;
+    }
+
+    .btn:hover {
+      background-color: #3b62e4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .typewriter h1 {
+        font-size: 2rem;
+      }
+      .subtext {
+        font-size: 1rem;
+      }
+    }
+
+    
+  </style>
+</head>
+<body>
+
+ 
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="typewriter">
+      <h1>Vishwakarma Fabricator</h1>
+    </div>
+    <p class="subtext">High Quality Flex & Digital Printing | Mohali, Punjab</p>
+    <button class="btn">Explore More</button>
+  </section>
+
+
+
+
+
+    <!-- ✅ About Us Section Start -->
+
+
+<section id="about" style="padding: 80px 20px; 
+  background: url('officebackground.png') no-repeat center center/cover;
+  background-attachment: fixed;
+">
+
+
+
+
+  <style>
+    .about-container {
+      max-width: 1300px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+    }
+
+
+
+
+    .about-images {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .img-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .img-row img {
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 4px solid white;
+    }
+
+    .img-sm {
+      width: 280px;
+      height: 280px;
+    }
+
+    .img-lg {
+      width: 200px;
+      height: 200px;
+    }
+
+       .about-text {
+      background-color: white;
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 600px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .about-text h2 {
+      color: #ff3c00;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .about-text {
+        padding: 25px;
+      }
+
+      .about-images img {
+        width: 110px;
+        height: 110px;
+      }
+    }
+  </style>
+
+  <div class="about-container">
+    <!-- Left Side Images -->
+    <div class="about-images">
+      <div class="img-row">
+        <img src="office4.png" alt="Office" class="img-sm">
+        <img src="office2.png" alt="Office" class="img-lg">
+      </div>
+      <div class="img-row">
+        <img src="office3.png" alt="Office" class="img-lg">
+        <img src="office1.png" alt="Office" class="img-sm">
+      </div>
+    </div>
+
+    <!-- Right Side Text -->
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        <b>It gives us an immense pleasure to introduce our company as one of the eminent companies providing high quality flex banner printing services. 
+        Quality of services is a prior consideration for our company, so these services are specially designed in accordance with our clients’ specifications. 
+        Our flex banner printing services are undertaken by using advanced technology machines. We believe in treating our customers with the highest degree of integrity. 
+        Flex printing can be used in hoarding printing, vinyl printing, board printing, canvas printing, glass lamination printing, wall wrap printing, banner printing, and backdrop printing. 
+        Digital printing is so flexible that you can customize it according to your clients’ needs.</b>
+      </p>
+    </div>
+  </div>
+</section>
+<!-- ✅ About Us Section End -->
+
+
+<!-- Services Section -->
+<section id="services" style="
+background: linear-gradient(to right, #fcf9ed, #fff3d4);
+
+  padding: 80px 20px;
+  text-align: center;
+  color: #333;
+  overflow: hidden;
+">
+  <style>
+    .services-container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .services-title,
+    .service-item {
+      opacity: 0;
+    }
+
+    .services-title.animate {
+      animation: popIn 1.5s ease-out forwards;
+    }
+
+    .service-item.animate {
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .services-title {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #ff3c00;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 90px;
+    }
+
+    .service-item {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-item h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #ff3c00;
+    }
+
+    .service-item p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8) translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .services-title { font-size: 2rem; }
+    }
+  </style>
+
+  <div class="services-container">
+    <h2 class="services-title">Our Services</h2>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <h3>Flex Printing</h3>
+        <p>High-quality flex banner printing for hoardings, exhibitions, and events.</p>
+      </div>
+      <div class="service-item">
+        <h3>Vinyl Printing</h3>
+        <p>Customized vinyl printing suitable for indoor & outdoor branding.</p>
+      </div>
+      <div class="service-item">
+        <h3>In-Shop Branding</h3>
+        <p>Premium branding solutions for retail stores, showrooms, and outlets.</p>
+      </div>
+      <div class="service-item">
+        <h3>Product Launch Promotion</h3>
+        <p>Design & branding support for product launches across India.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observeServices = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observeServices.observe(document.querySelector('.services-title'));
+    document.querySelectorAll('.service-item').forEach(item => {
+      observeServices.observe(item);
+    });
+  </script>
+</section>
+
+
+<section id="machinery-slider" style="padding: 80px 20px; background: #f9f9f9;">
+  <style>
+    .machine-slider-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: nowrap;
+    }
+
+    .machine-slider {
+      flex: 1;
+      max-width: 48%;
+    }
+
+    .machine-slider img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: fadeZoom 1.2s ease;
+    }
+
+    .machine-text {
+      flex: 1;
+      max-width: 48%;
+      color: #333;
+    }
+
+    .machine-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #ff3c00;
+    }
+
+    .machine-text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .machine-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .machine-features li {
+      margin-bottom: 15px;
+      font-size: 1rem;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .machine-features li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ff3c00;
+      font-weight: bold;
+    }
+
+    @keyframes fadeZoom {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media(max-width: 768px) {
+      .machine-slider-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .machine-slider,
+      .machine-text {
+        max-width: 100%;
+      }
+
+      .machine-text h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+
+  <div class="machine-slider-container">
+    <!-- Left Side Slider -->
+    <div class="machine-slider">
+      <img id="machineImage" src="./machine1.png" alt="Machine 1">
+    </div>
+<div class="machine-text">
+  <h2>Our Advanced Machinery</h2>
+  <p>We operate with cutting-edge technology to deliver top-quality printing and fabrication services that meet modern advertising demands.</p>
+  <ul class="machine-features">
+    <li>Revotech Flex Printing Machine – High-speed solvent-based output for banners & hoardings.</li>
+    <li>HP Latex Eco Printing Machine – Eco-friendly, odourless indoor and outdoor branding prints.</li>
+    <li>Acrylic Laser Cutting Machine – Sharp and clean laser cut for signage and display boards.</li>
+    <li>CNC Router Cutting Machine – Heavy-duty cutting of foam, sunboard, ACP & MDF materials.</li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- Slider Script -->
+  <script>
+    const machineImages = [
+      'machine1.png',
+      'machine2.png',
+      'machine3.png',
+      'machine4.png',
+      'machine5.png',
+      'machine6.png'
+    ];
+
+    let current = 0;
+    const imgElement = document.getElementById('machineImage');
+
+    setInterval(() => {
+      current = (current + 1) % machineImages.length;
+      imgElement.src = machineImages[current];
+    }, 3000);
+  </script>
+</section>
+
+
+
+
+
+<!-- Clients Section -->
+<section class="clients-section" id="clients">
+  <style>
+    .clients-section {
+      background: linear-gradient(to bottom, #fefefe, #f4f4f4);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .clients-section h2 {
+      font-size: 2.6rem;
+      color: #222;
+      margin-bottom: 10px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .clients-section h2::after {
+      content: "";
+      display: block;
+      margin: 12px auto;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #ff3c00, #ff7a00);
+      border-radius: 2px;
+      animation: expandLine 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes expandLine {
+      0% { width: 60px; }
+      100% { width: 100px; }
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 5px;
+      margin-top: 50px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .client-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.4s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+      border: 1px solid #eee;
+    }
+
+    /* Animation delay for each card */
+    .client-card:nth-child(1) { animation-delay: 0.2s; }
+    .client-card:nth-child(2) { animation-delay: 0.4s; }
+    .client-card:nth-child(3) { animation-delay: 0.6s; }
+    .client-card:nth-child(4) { animation-delay: 0.8s; }
+    .client-card:nth-child(5) { animation-delay: 1s; }
+    .client-card:nth-child(6) { animation-delay: 1.2s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .client-card img {
+      width: 100%;
+      height: 80px;
+      object-fit: contain;
+      transition: 0.3s ease;
+    }
+
+    .client-card:hover img {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .clients-section h2 {
+        font-size: 2rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+      }
+
+      .client-card img {
+        height: 60px;
+      }
+    }
+  </style>
+
+  <h2>Our Trusted Clients</h2>
+
+  <div class="clients-grid">
+    <div class="client-card"><img src="client1.jpg" alt="Client 1"></div>
+    <div class="client-card"><img src="client2.jpg" alt="Client 2"></div>
+    <div class="client-card"><img src="client3.jpg" alt="Client 3"></div>
+    <div class="client-card"><img src="client4.png" alt="Client 4"></div>
+    <div class="client-card"><img src="client5.jpg" alt="Client 5"></div>
+    <div class="client-card"><img src="client6.jpg" alt="Client 6"></div>
+    <div class="client-card"><img src="client7.png" alt="Client 1"></div>
+    <div class="client-card"><img src="client8.jpg" alt="Client 2"></div>
+    <div class="client-card"><img src="client9.png" alt="Client 3"></div>
+    <div class="client-card"><img src="client10.jpg" alt="Client 4"></div>
+    <div class="client-card"><img src="client11.webp" alt="Client 5"></div>
+    <div class="client-card"><img src="client12.webp" alt="Client 6"></div>
+    <div class="client-card"><img src="client13.jpg" alt="Client 5"></div>
+    <div class="client-card"><img src="client14.webp" alt="Client 6"></div>
+  </div>
+</section>
+
+
+
+<style>
+    /* ===== GALLERY SECTION ===== */
+    .gallery-section {
+      padding: 100px 30px;
+      background: url('hello.jpg') center/cover no-repeat fixed;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #fff;
+      text-align: center;
+    }
+
+    .gallery-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #000000;
+    }
+
+    .gallery-swiper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .gallery-swiper-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .gallery-swiper-title {
+      padding: 10px;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 220px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .swiper-pagination-bullet {
+      background: #fff;
+    }
+
+    @media(max-width: 768px) {
+      .gallery-section h2 {
+        font-size: 2rem;
+      }
+      .swiper {
+        height: 180px;
+      }
+      .swiper-slide img {
+        height: 180px;
+      }
+    }
+  </style>
+
+
+<!-- ✅ GALLERY SECTION START -->
+<section id="gallery" class="gallery-section">
+  <h2>Our Work with Leading Brands</h2>
+  <div class="gallery-grid">
+
+    <!-- CARD 1 -->
+    <div class="gallery-card">
+      <div class="brand-title">AGL Tiles</div>
+      <div class="swiper gallery-swiper-1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="AGL1.png" /></div>
+          <div class="swiper-slide"><img src="AGL2.png" /></div>
+          <div class="swiper-slide"><img src="AGL3.png" /></div>
+          <div class="swiper-slide"><img src="AGL4.png" /></div>
+          <div class="swiper-slide"><img src="AGL5.png" /></div>
+          <div class="swiper-slide"><img src="AGL6.png" /></div>
+          <div class="swiper-slide"><img src="AGL7.png" /></div>
+          <div class="swiper-slide"><img src="AGL8.png" /></div>
+           <div class="swiper-slide"><img src="AGL9.png" /></div>
+          <div class="swiper-slide"><img src="AGL10.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="gallery-card">
+      <div class="brand-title">SOMANY CERAMICS LIMITED</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="somany1.png" /></div>
+          <div class="swiper-slide"><img src="somany2.png" /></div>
+          <div class="swiper-slide"><img src="somany3.png" /></div>
+          <div class="swiper-slide"><img src="somany4.png" /></div>
+          <div class="swiper-slide"><img src="somany5.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+      <!-- CARD 3 -->
+    <div class="gallery-card">
+      <div class="brand-title">WAVE ESTATE</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="WAVE ESTATE1.png" /></div>
+          <div class="swiper-slide"><img src="WAVE ESTATE2.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+         <!-- CARD 4 -->
+    <div class="gallery-card">
+      <div class="brand-title">SAFARI INDUSTRIES</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="safari1.png" /></div>
+          <div class="swiper-slide"><img src="safari2.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+        <!-- CARD 5 -->
+    <div class="gallery-card">
+      <div class="brand-title">SAMSONITE</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="samsonite1.png" /></div>
+          <div class="swiper-slide"><img src="samsonite2.png" /></div>
+          <div class="swiper-slide"><img src="samsonite3.png" /></div>
+          <div class="swiper-slide"><img src="samsonite4.png" /></div>
+          <div class="swiper-slide"><img src="samsonite5.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    
+        <!-- CARD 6 -->
+    <div class="gallery-card">
+      <div class="brand-title">LENOVO</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="lenovo1.png" /></div>
+          <div class="swiper-slide"><img src="lenovo2.png" /></div>
+          <div class="swiper-slide"><img src="lenovo3.png" /></div>
+          <div class="swiper-slide"><img src="lenovo4.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+         <!-- CARD 7 -->
+    <div class="gallery-card">
+      <div class="brand-title">LAVIE</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="lavie1.png" /></div>
+          <div class="swiper-slide"><img src="lavie2.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+         <!-- CARD 8 -->
+    <div class="gallery-card">
+      <div class="brand-title">SBI</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="SBI1.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+         <!-- CARD 9 -->
+    <div class="gallery-card">
+      <div class="brand-title">VIVO</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="vivo1.png" /></div>
+          <div class="swiper-slide"><img src="vivo2.png" /></div>
+          <div class="swiper-slide"><img src="vivo3.png" /></div>
+          <div class="swiper-slide"><img src="vivo4.png" /></div>
+          <div class="swiper-slide"><img src="vivo5.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+             <!-- CARD 10 -->
+    <div class="gallery-card">
+      <div class="brand-title">WHIRLPOOL</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="whirlpool1.png" /></div>
+          <div class="swiper-slide"><img src="whirlpool2.png" /></div>
+          <div class="swiper-slide"><img src="whirlpool3.png" /></div>
+          <div class="swiper-slide"><img src="whirlpool4.png" /></div>
+          <div class="swiper-slide"><img src="whirlpool5.png" /></div>
+            <div class="swiper-slide"><img src="whirlpool6.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+             <!-- CARD 11 -->
+    <div class="gallery-card">
+      <div class="brand-title">VR PUNJAB</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="bridging.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+                <!-- CARD 12 -->
+    <div class="gallery-card">
+      <div class="brand-title">NHAI</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="nhai.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+      
+                  <!-- CARD 13 -->
+    <div class="gallery-card">
+      <div class="brand-title">SWIGGY</div>
+      <div class="swiper gallery-swiper-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="swiggy1.png" /></div>
+          <div class="swiper-slide"><img src="swiggy.png" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+  
+
+  </div>
+</section>
+
+<!-- ✅ CSS (Add in <style> tag or external CSS file) -->
+<style>
+.gallery-section {
+  padding: 80px 20px;
+  background: #ffffff url('gallery-bg.jpg') no-repeat center/cover;
+  text-align: center;
+  color: white;
+}
+
+.gallery-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #020202;
+  position: relative;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.gallery-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.brand-title {
+  padding: 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: #fd825c;
+  color: white;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide img {
+    height: 180px;
+  }
+}
+</style>
+
+<!-- ✅ Swiper & Scroll Animation Script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiperClasses = ['gallery-swiper-1', 'gallery-swiper-2'];
+
+  swiperClasses.forEach(className => {
+    new Swiper(`.${className}`, {
+      loop: true,
+      autoplay: { delay: 2500, disableOnInteraction: false },
+      pagination: { el: `.${className} .swiper-pagination`, clickable: true },
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.gallery-card').forEach(card => observer.observe(card));
+</script>
+<!-- ✅ GALLERY SECTION END -->
+
+
+<!-- ✅ Footer Start -->
+<footer  id="footer" style="background-color: #121212; color: #f7f7f7; padding: 60px 20px 20px; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+
+    <!-- About -->
+    <div style="flex: 1 1 250px;">
+      <h3 style="color: #ff3c00; margin-bottom: 15px;">Vishwakarma Fabricator</h3>
+      <p>High Quality Flex & Digital Printing Solutions based in Mohali, Punjab.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex: 1 1 150px;">
+      <h4 style="color: #ff3c00; margin-bottom: 15px;">Quick Links</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="#home" style="color: #f7f7f7; text-decoration: none;">Home</a></li>
+        <li><a href="#about" style="color: #f7f7f7; text-decoration: none;">About</a></li>
+        <li><a href="#services" style="color: #f7f7f7; text-decoration: none;">Services</a></li>
+        <li><a href="#clients" style="color: #f7f7f7; text-decoration: none;">clients</a></li>
+        <li><a href="#machinery-slider" style="color: #f7f7f7; text-decoration: none;">Machine</a></li>
+        <li><a href="#gallery" style="color: #f7f7f7; text-decoration: none;">Gallery</a></li>
+        <li><a href="#contact" style="color: #f7f7f7; text-decoration: none;">Contact</a></li>
+      </ul>
+    </div>
+
+ <!-- Contact Info -->
+<div style="flex: 1 1 250px;">
+  <h4 style="color: #ff3c00; margin-bottom: 15px;">Contact</h4>
+  
+  <!-- Name Line -->
+  <p><strong>Parveen Panchal</strong></p>
+
+  <!-- Location -->
+  <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 
+    PLOT NO 182 PHASE-9 INDUSTRIAL AREA<br>MOHALI, PUNJAB
+  </p>
+
+  <!-- Phone -->
+  <p><i class="fas fa-phone" style="margin-right: 8px;"></i> +91 9915067013</p>
+</div>
+
+
+
+  
+
+  <!-- Bottom -->
+  <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; text-align: center;">
+    <p style="margin: 0;">&copy; 2025 Vishwakarma Fabricator. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- FontAwesome for Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- ✅ Footer End -->
+
+
+</body>
+</html>
+
+
+
