@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vishwakarma Fabricator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
 
   <!-- Bootstrap & FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -171,7 +176,7 @@
         <li class="nav-item px-2"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item px-2"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item px-2"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item px-2"><a class="nav-link" href="#machinery-slider">Machinery</a></li>
+        <li class="nav-item px-2"><a class="nav-link" href="#machinery-cards">Machinery</a></li>
         <li class="nav-item px-2"><a class="nav-link" href="#clients">Clients</a></li>
         <li class="nav-item px-2"><a class="nav-link" href="#gallery">Gallery</a></li>
         <li class="nav-item px-2"><a class="nav-link" href="#footer">Contact</a></li>
@@ -196,7 +201,7 @@
       <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
       <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
       <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-      <li class="nav-item"><a class="nav-link" href="#machinery-slider">Machinery</a></li>
+      <li class="nav-item"><a class="nav-link" href="#machinery-cards">Machinery</a></li>
       <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
       <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
       <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
@@ -315,14 +320,42 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
-      .typewriter h1 {
-        font-size: 2rem;
-      }
-      .subtext {
-        font-size: 1rem;
-      }
-    }
+  
+
+
+    .typewriter h1 {
+  font-size: 3rem;
+  overflow: hidden;
+  border-right: .15em solid #ff3c00;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .1em;
+  animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+  color: white;
+}
+
+.hero-brand.orange {
+  color: #ff3c00;
+}
+
+/* ✅ Break only on phone */
+.mobile-break {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .typewriter h1 {
+    white-space: normal;  /* allow line break */
+    text-align: center;
+    border-right: none;
+    animation: none;
+  }
+
+  .mobile-break {
+    display: block;   /* line break on mobile only */
+  }
+}
+
 
     
   </style>
@@ -330,15 +363,17 @@
 <body>
 
  
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="typewriter">
-      <h1>Vishwakarma Fabricator</h1>
-    </div>
-    <p class="subtext">High Quality Flex & Digital Printing | Mohali, Punjab</p>
-    <button class="btn">Explore More</button>
-  </section>
+<section class="hero" id="home">
+  <div class="typewriter">
+    <h1>
+      <span class="hero-brand">Vishwakarma</span>
+      <span class="mobile-break"></span>
+      <span class="hero-brand orange">Fabricator</span>
+    </h1>
+  </div>
+  <p class="subtext">High Quality Flex & Digital Printing | Mohali, Punjab</p>
+  <button class="btn">Explore More</button>
+</section>
 
 
 
@@ -599,130 +634,231 @@ background: linear-gradient(to right, #fcf9ed, #fff3d4);
 </section>
 
 
-<section id="machinery-slider" style="padding: 80px 20px; background: #f9f9f9;">
+<section id="machinery-cards" style="padding: 60px 20px; background: #f9f9f9;">
   <style>
-    .machine-slider-container {
+    .machine-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
       max-width: 1200px;
       margin: auto;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: nowrap;
+    }
+
+    .machine-card {
+      width: 300px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     .machine-slider {
-      flex: 1;
-      max-width: 48%;
+      width: 100%;
+      height: 200px;
+      position: relative;
     }
 
     .machine-slider img {
       width: 100%;
-      height: 320px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      animation: fadeZoom 1.2s ease;
+      border-bottom: 1px solid #eee;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
-    .machine-text {
-      flex: 1;
-      max-width: 48%;
+    .machine-slider img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .machine-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .machine-info h3 {
+      font-size: 1.2rem;
+      color: #ff3c00;
+      margin-bottom: 10px;
+    }
+
+    .machine-info ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.95rem;
       color: #333;
     }
 
-    .machine-text h2 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      color: #ff3c00;
-    }
-
-    .machine-text p {
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .machine-features {
-      list-style: none;
-      padding: 0;
-    }
-
-    .machine-features li {
-      margin-bottom: 15px;
-      font-size: 1rem;
+    .machine-info ul li {
+      margin-bottom: 8px;
       position: relative;
-      padding-left: 28px;
+      padding-left: 20px;
     }
 
-    .machine-features li::before {
+    .machine-info ul li::before {
       content: '✔';
       position: absolute;
       left: 0;
-      top: 0;
       color: #ff3c00;
-      font-weight: bold;
-    }
-
-    @keyframes fadeZoom {
-      from { opacity: 0; transform: scale(0.9); }
-      to   { opacity: 1; transform: scale(1); }
+      font-size: 1rem;
     }
 
     @media(max-width: 768px) {
-      .machine-slider-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .machine-slider,
-      .machine-text {
-        max-width: 100%;
-      }
-
-      .machine-text h2 {
-        font-size: 1.6rem;
+      .machine-card {
+        width: 90%;
       }
     }
   </style>
 
-  <div class="machine-slider-container">
-    <!-- Left Side Slider -->
-    <div class="machine-slider">
-      <img id="machineImage" src="./machine1.png" alt="Machine 1">
+
+<section id="machinery-cards" style="padding: 60px 20px; background: #f9f9f9;">
+
+  <!-- Section Heading -->
+  <h2 style="
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #ff3c00;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 1px;
+  ">
+    OUR MACHINES
+  </h2>
+
+
+  <div class="machine-cards-container">
+
+    <!-- Example Machine Card with 2 images -->
+    <div class="machine-card">
+      <div class="machine-slider">
+        <img src="revotech1.png" class="active" alt="Machine Image 1">
+        <img src="revotech2.jpg" alt="Machine Image 2">
+      </div>
+      <div class="machine-info">
+        <h3>REVOTECH  PRINTING  MACHINE</h3>
+          <ul>
+              <li>High-resolution solvent printing</li>
+              <li>Ideal for outdoor banners and flex</li>
+          </ul>
+
+
+      </div>
     </div>
-<div class="machine-text">
-  <h2>Our Advanced Machinery</h2>
-  <p>We operate with cutting-edge technology to deliver top-quality printing and fabrication services that meet modern advertising demands.</p>
-  <ul class="machine-features">
-    <li>Revotech Flex Printing Machine – High-speed solvent-based output for banners & hoardings.</li>
-    <li>HP Latex Eco Printing Machine – Eco-friendly, odourless indoor and outdoor branding prints.</li>
-    <li>Acrylic Laser Cutting Machine – Sharp and clean laser cut for signage and display boards.</li>
-    <li>CNC Router Cutting Machine – Heavy-duty cutting of foam, sunboard, ACP & MDF materials.</li>
-  </ul>
-</div>
+
+
+      <!-- Example Machine Card with 2 images -->
+    <div class="machine-card">
+      <div class="machine-slider">
+        <img src="laser cutting2.jpg" class="active" alt="Machine Image 1">
+        <img src="laser cutting1.png" alt="Machine Image 2">
+      </div>
+      <div class="machine-info">
+        <h3>LASER  CUTTING MACHINE</h3>
+         <ul>
+  <li>Precision acrylic and MDF cutting</li>
+  <li>Perfect edges without manual finishing</li>
+</ul>
+
+      </div>
+    </div>
+
+
+
+      <!-- Example Machine Card with 2 images -->
+    <div class="machine-card">
+      <div class="machine-slider">
+        <img src="hp.jpg" class="active" alt="Machine Image 1">
+        <img src="hp2.png" alt="Machine Image 2">
+      </div>
+      <div class="machine-info">
+        <h3>HP – LATEX ECO PRINTING MACHINE</h3>
+        <ul>
+  <li>Water-based ink for eco-friendly use</li>
+  <li>Suitable for indoor branding & wallpaper</li>
+</ul>
+
+      </div>
+    </div>
+
+
+    
+
+      <!-- Example Machine Card with 2 images -->
+    <div class="machine-card">
+      <div class="machine-slider">
+        <img src="lamination.jpg" class="active" alt="Machine Image 1">
+        <img src="LAMINATION  AREA1.png" alt="Machine Image 2">
+        <img src="LAMINATION  AREA2.png" alt="Machine Image 2">
+      </div>
+      <div class="machine-info">
+        <h3>LAMINATION  AREA</h3>
+        <ul>
+  <li>Glossy and matte lamination options</li>
+  <li>Protects prints from water & scratches</li>
+</ul>
+
+      </div>
+    </div>
+
+
+    
+         <!-- Example Machine Card with 2 images -->
+    <div class="machine-card">
+      <div class="machine-slider">
+        <img src="CNC.png" class="active" alt="Machine Image 1">
+      </div>
+      <div class="machine-info">
+        <h3>CNC ROUTER CUTTING MACHINE</h3>
+       <ul>
+  <li>3D carving on ACP, MDF & wood</li>
+  <li>Perfect for signboards & interior decor</li>
+</ul>
+
+      </div>
+    </div>
+
+     
+         <!-- Example Machine Card with 2 images -->
+    <div class="machine-card">
+      <div class="machine-slider">
+        <img src="mimaki printer.jpg" class="active" alt="Machine Image 1">
+        <img src="mimaki printer.jpg" class="active" alt="Machine Image 1">
+      </div>
+      <div class="machine-info">
+        <h3>mimaki printer</h3>
+        <ul>
+  <li>Print and contour cut in one process</li>
+  <li>Best for vinyl stickers & labels</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Add more machine cards like above if needed -->
 
   </div>
 
-  <!-- Slider Script -->
+  <!-- JavaScript for 2-image loop slider -->
   <script>
-    const machineImages = [
-      'machine1.png',
-      'machine2.png',
-      'machine3.png',
-      'machine4.png',
-      'machine5.png',
-      'machine6.png'
-    ];
+    const sliders = document.querySelectorAll('.machine-slider');
 
-    let current = 0;
-    const imgElement = document.getElementById('machineImage');
+    sliders.forEach(slider => {
+      const images = slider.querySelectorAll('img');
+      let current = 0;
 
-    setInterval(() => {
-      current = (current + 1) % machineImages.length;
-      imgElement.src = machineImages[current];
-    }, 3000);
+      setInterval(() => {
+        images[current].classList.remove('active');
+        current = (current + 1) % images.length;
+        images[current].classList.add('active');
+      }, 3000);
+    });
   </script>
 </section>
 
